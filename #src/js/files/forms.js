@@ -1,4 +1,4 @@
-//let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
+let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
 if (forms.length > 0) {
 	for (let index = 0; index < forms.length; index++) {
@@ -6,7 +6,7 @@ if (forms.length > 0) {
 		el.addEventListener('submit', form_submit);
 	}
 }
-function form_submit(e) {
+function form_submit(event) {
 	let btn = event.target;
 	let form = btn.closest('form');
 	let message = form.getAttribute('data-message');
@@ -15,8 +15,8 @@ function form_submit(e) {
 		//SendForm
 		form_clean(form);
 		if (message) {
-			popup_open('message-' + message);
-			e.preventDefault();
+			popup_open(message + '-message');
+			event.preventDefault();
 		}
 	} else {
 		let form_error = form.querySelectorAll('._error');

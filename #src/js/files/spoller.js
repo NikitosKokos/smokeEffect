@@ -1,5 +1,15 @@
 let spollers = document.querySelectorAll("._spoller");
 if (spollers.length > 0) {
+	function initSpollers(spoller){
+		if (spoller.classList.contains('_spoller-992') && window.innerWidth < 992) {
+			spoller.classList.add('_init');
+		}else if (spoller.classList.contains('_spoller-768') && window.innerWidth < 768) {
+			spoller.classList.add('_init');
+		}else{
+			spoller.classList.remove('_init');
+		}
+	}
+
 	for (let index = 0; index < spollers.length; index++) {
 		const spoller = spollers[index];
 
@@ -23,5 +33,9 @@ if (spollers.length > 0) {
 			spoller.classList.toggle('_active');
 			_slideToggle(spoller.nextElementSibling);
 		});
+
+		initSpollers(spoller);
+
+		window.addEventListener('resize',() =>  initSpollers(spoller));
 	}
 }
