@@ -55,6 +55,5 @@ document.addEventListener('DOMContentLoaded', () => {
         textBlue.classList.add('_active');
         hoverSmoke(textBlue);
     });
-  
 
 }); // end

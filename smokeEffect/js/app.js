@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         textBlue.classList.add('_active');
         hoverSmoke(textBlue);
     });
-  
 
 }); // end
 let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
