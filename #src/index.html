@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('_head.html',{
-	"title":"Главная"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('_header.html',{})
-			<main class="page">
-
-			</main>
-			@@include('_footer.html',{})
-		</div>
-		@@include('_popup.html',{})
-		@@include('_js.html',{})
-	</body>
+  @@include('_head.html',{ "title":"Главная" })
+  <body>
+    <div class="wrapper">
+      @@include('_header.html',{})
+      <main class="page">
+        <div class="screen">
+          <div class="screen__container _container">
+            <div class="screen__text">Welcome!</div>
+          </div>
+        </div>
+        <div class="screen">
+          <div class="screen__container _container">
+            <div class="screen__text">You must make your choice...</div>
+          </div>
+        </div>
+		<div class="screen">
+			<div class="screen__container _container">
+			  <div class="screen__text screen__text_github">Red or blue?</div>
+			  <div class="screen__choice">
+				<button class="screen__tablet screen__tablet_red"></button>
+				<button class="screen__tablet screen__tablet_blue"></button>
+			  </div>
+			</div>
+		  </div>
+		  <div class="screen screen_red">
+			<div class="screen__container _container">
+			  <div class="screen__descr">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam debitis repellat consequuntur veniam omnis commodi, corporis pariatur magni alias ratione nemo quod rerum excepturi fugiat sed modi quis iure praesentium?</div>
+			</div>
+		  </div>
+		  <div class="screen screen_blue">
+			<div class="screen__container _container">
+			  <div class="screen__descr">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam debitis repellat consequuntur veniam omnis commodi, corporis pariatur magni alias ratione nemo quod rerum excepturi fugiat sed modi quis iure praesentium?</div>
+			</div>
+		  </div>
+      </main>
+      @@include('_footer.html',{})
+    </div>
+    @@include('_popup.html',{}) @@include('_js.html',{})
+  </body>
 </html>
