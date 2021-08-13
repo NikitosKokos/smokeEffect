@@ -482,6 +482,24 @@ h6 {
   }
 }
 
+.github {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+.github svg {
+  width: 40px;
+  height: 40px;
+}
+
+.github svg path {
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
 ._container {
   max-width: 1100px;
   margin: 0 auto;
@@ -572,5 +590,11 @@ body._lock {
 
   .screen__tablet_red {
     margin: 0px 0px 20px 0px;
+  }
+}
+
+@media (any-hover: hover) {
+  .github:hover svg path {
+    fill: #aaa;
   }
 }

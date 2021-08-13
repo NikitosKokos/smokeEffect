@@ -171,3 +171,29 @@
         transform: translateX(300px) translateY(-300px) rotate(720deg) scale(4);
     }
 }
+
+.github{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+
+    svg{
+        width: 40px;
+        height: 40px;
+
+        path{
+            transition: all .3s ease-in-out;
+        }
+    }
+
+    @media(any-hover: hover){
+        &:hover{
+            svg{
+                path{
+                    fill: #aaa;
+                }
+            }
+        }
+    }
+}
