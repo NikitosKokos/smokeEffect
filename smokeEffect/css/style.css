@@ -291,6 +291,8 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .screen__text {
@@ -308,13 +310,6 @@ h6 {
 .screen__text span._active {
   -webkit-animation: smoke 2s linear forwards;
           animation: smoke 2s linear forwards;
-}
-
-.screen__text a {
-  color: #fff;
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
 }
 
 .screen__descr {
@@ -356,7 +351,6 @@ h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 30px;
 }
 
 .screen__tablet {
@@ -367,15 +361,41 @@ h6 {
   border-radius: 50px;
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.6) inset;
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.6) inset;
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  position: absolute;
 }
 
 .screen__tablet_red {
   background: red;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
   margin: 0px 20px 0px 0px;
 }
 
 .screen__tablet_blue {
   background: blue;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.screen__tablet._active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  position: static;
 }
 
 @-webkit-keyframes smoke {
@@ -516,10 +536,6 @@ body._lock {
   .screen__descr {
     font-size: calc(18px + 12 * ((100vw - 320px) / 780));
   }
-
-  .screen__choice {
-    margin-top: calc(15px + 15 * ((100vw - 320px) / 780));
-  }
 }
 
 @media (max-width: 991.98px) {
@@ -529,9 +545,13 @@ body._lock {
 }
 
 @media (max-width: 767.98px) {
+  .screen__descr {
+    padding: 0 10px;
+  }
+
   ._container {
     max-width: none;
-    padding: 0 10px;
+    padding: 20px 10px;
   }
 }
 
@@ -552,11 +572,5 @@ body._lock {
 
   .screen__tablet_red {
     margin: 0px 0px 20px 0px;
-  }
-}
-
-@media (any-hover: hover) {
-  .screen__text a:hover {
-    color: #eee;
   }
 }

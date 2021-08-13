@@ -5,17 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smoke Effect
     const text = document.querySelectorAll('.screen__text');
     const screens = document.querySelectorAll('.screen');
+    const redBtn = document.querySelector('.screen__tablet_red');
+    const blueBtn = document.querySelector('.screen__tablet_blue');
 
-    function smokeEffect(text){
+    function smokeEffect(textArr, screens){
+        if(textArr.length === 0) return;
+
+        const text = textArr[0];
+        screens[0].classList.add('_active');
         text.innerHTML = text.textContent.replace(/\S/g, '<span>$&</span>');
 
         text.querySelectorAll('span').forEach((word, i) => {
             setTimeout(() => {
                 word.classList.add('_active');
-                if(text.querySelectorAll('span').length === i+1 && text.classList.contains('screen__text_github')){
+                if(text.querySelectorAll('span').length === i+1){
                     setTimeout(() => {
-                    text.innerHTML = '<a href="https://github.com/NikitosKokos">Subscribe to my GitHub</a>';
-                    text.querySelector('a').innerHTML = text.textContent.replace(/\S/g, '<span>$&</span>');
+                        smokeEffect([...textArr].slice(1), [...screens].slice(1));
+                        if(text.classList.contains('screen__text_buttons')){
+                            text.remove();
+                            redBtn.classList.add('_active');
+                            blueBtn.classList.add('_active');
+                        }
                     }, 2000);
                 }
             }, 100 * i + 500);
@@ -35,15 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    text.forEach((text, i) => {
-        setTimeout(() => {
-            smokeEffect(text);
-            screens[i].classList.add('_active');
-        }, 3000 * i);
-    });
-
-    const redBtn = document.querySelector('.screen__tablet_red');
-    const blueBtn = document.querySelector('.screen__tablet_blue');
+    // text.forEach((text, i) => {
+    //     setTimeout(() => {
+    //         smokeEffect(text);
+    //         screens[i].classList.add('_active');
+    //     }, 3000 * i);
+    // });
+    smokeEffect(text, screens);
 
     redBtn.addEventListener('click', () => {
         const textRed = document.querySelector('.screen_red');
